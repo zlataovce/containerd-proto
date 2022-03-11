@@ -80,7 +80,7 @@ tasks.register("pullProtoSources") {
         exec {
             workingDir = file("src/main/proto")
 
-            commandLine = listOf("git", "checkout", version as String, "*.proto")
+            commandLine = listOf("git", "checkout", output.toString().trim(), "*.proto")
         }
     }
     doLast {
