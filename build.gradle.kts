@@ -73,10 +73,10 @@ tasks.register("pullProtoSources") {
         exec {
             workingDir = file("src/main/proto")
 
-            commandLine = listOf("git", "describe", "--tags")
+            commandLine = listOf("git", "describe", "--tags", "--abbrev=0")
             standardOutput = output
         }
-        version = output.toString().trim()
+        version = output.toString().trim().substring(1).replace("api/", "")
         exec {
             workingDir = file("src/main/proto")
 
